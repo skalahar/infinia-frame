@@ -49,7 +49,7 @@ def add_metadata(image_path: str, prompt: str, seed: int):
         exit(1)
 
 # Set the paths
-installed_dir = "/home/skalahar/PicturePi"
+installed_dir = os.getcwd()
 sd_bin = os.path.join(installed_dir, "OnnxStream/src/build/sd")
 sd_model = os.path.join(installed_dir, "models/")
 
