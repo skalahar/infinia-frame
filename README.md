@@ -7,9 +7,11 @@ Installation Procedure
 
 2. Install the virtual environment
   - python3 -m venv .venv
-  - Install Pillow (pip install pillow)
-  - Install OpenCV (pip install opencv-contrib-python)
-  - install inky (pip install inky[rpi]==1.5.0)
+  - pip install pillow
+  - pip install opencv-contrib-python
+  - pip install inky[rpi]==1.5.0
+  - pip install flask
+  - pip install flask-socketio
 
 
 3. get XNNPACK 
