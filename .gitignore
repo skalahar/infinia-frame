@@ -1,0 +1,23 @@
+# Ignore virtual environment
+venv/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore models and binary files
+models/
+OnnxStream/
+XNNPACK/
+
+# Ignore log files
+*.log
+logs/
+
+#ignore nohup files
+nohup.out
