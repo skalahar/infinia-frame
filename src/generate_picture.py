@@ -16,15 +16,15 @@ def generate_prompt(path: str, filename: str):
     try:
         with open(os.path.join(path, "src", filename), 'r') as file:
             prompts = json.load(file)
-        
+
         # Extract the lists from prompt.json
         animals, items, art_styles = prompts
-        
+
         # Select a random entry from each list
         animal = random.choice(animals)
         item = random.choice(items)
         art_style = random.choice(art_styles)
-        
+
         # Generate the prompt statement
         return f"{animal} wearing {item} {art_style}"
     except Exception as e:
@@ -35,12 +35,12 @@ def add_metadata(image_path: str, prompt: str, seed: int):
     """Adds metadata to a PNG image."""
     try:
         image = Image.open(image_path)
-        
+
         # Add prompt and seed as metadata
         metadata = PngImagePlugin.PngInfo()
         metadata.add_text("Prompt", prompt)
         metadata.add_text("Seed", str(seed))
-        
+
         # Save the updated image
         image.save(image_path, pnginfo=metadata)
         print("Metadata added successfully.")
@@ -63,7 +63,7 @@ output_dir = args.output_dir
 shared_file = "output.png"
 
 # Define parameters
-steps = 5
+steps = 3
 seed = random.randint(1, 10000)
 
 # Generate a random prompt
