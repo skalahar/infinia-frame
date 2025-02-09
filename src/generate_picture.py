@@ -49,7 +49,8 @@ def add_metadata(image_path: str, prompt: str, seed: int):
         exit(1)
 
 # Set the paths
-installed_dir = os.getcwd()
+file_dir = os.path.dirname(__file__)
+installed_dir = os.path.dirname(file_dir)
 sd_bin = os.path.join(installed_dir, "OnnxStream/src/build/sd")
 sd_model = os.path.join(installed_dir, "models/")
 
