@@ -17,16 +17,21 @@ def generate_prompt(path: str, filename: str):
         with open(os.path.join(path, "src", filename), 'r') as file:
             prompts = json.load(file)
 
-        # Extract the lists from prompt.json
-        animals, items, art_styles = prompts
+        # Extract the prompt and lists from prompt.json
+        prompt = prompts["prompt"]
+        categories = prompts["categories"]
 
-        # Select a random entry from each list
-        animal = random.choice(animals)
-        item = random.choice(items)
-        art_style = random.choice(art_styles)
+        # Generate a dictionary with random selections for each category
+        selected_values = {key: random.choice(values) for key, values in categories.items()}
+
+        prompt_statement = prompt
+
+        for key, value in selected_values.items():
+            prompt_statement = prompt_statement.replace(f"[{key}]", value)
 
         # Generate the prompt statement
-        return f"{animal} wearing {item} {art_style}"
+        return prompt_statement
+
     except Exception as e:
         print(f"Error reading prompt file: {e}")
         exit(1)
