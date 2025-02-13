@@ -68,11 +68,12 @@ output_dir = args.output_dir
 shared_file = "output.png"
 
 # Define parameters
-steps = 3
+steps = 2
 seed = random.randint(1, 10000)
 
 # Generate a random prompt
 prompt = generate_prompt(installed_dir, "prompt.json")
+prompt = prompt.lower() #Ensure the prompt is in lower case
 
 # Create a unique filename
 unique_arg = f"{prompt.replace(' ', '_')}_seed_{seed}"
