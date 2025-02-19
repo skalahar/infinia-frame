@@ -19,6 +19,9 @@ def generate_prompt(path: str, filename: str):
 
         # Extract the prompt and lists from prompt.json
         prompt = prompts["prompt"]
+        seed = prompts["seed"]
+        steps = prompts["steps"]
+        resolution = prompts["resolution"]
         categories = prompts["categories"]
 
         # Generate a dictionary with random selections for each category
@@ -30,7 +33,7 @@ def generate_prompt(path: str, filename: str):
             prompt_statement = prompt_statement.replace(f"[{key}]", value)
 
         # Generate the prompt statement
-        return prompt_statement
+        return prompt_statement, seed, steps, resolution
 
     except Exception as e:
         print(f"Error reading prompt file: {e}")
@@ -67,13 +70,14 @@ args = parser.parse_args()
 output_dir = args.output_dir
 shared_file = "output.png"
 
-# Define parameters
-steps = 2
-seed = random.randint(1, 10000)
-
 # Generate a random prompt
-prompt = generate_prompt(installed_dir, "prompt.json")
-prompt = prompt.lower() #Ensure the prompt is in lower case
+prompt, seed, steps, resolution = generate_prompt(installed_dir, "prompt.json")
+prompt = prompt.lower() #If the prompt has an upper case letter it doesn't work right, not sure why
+
+# Define parameters
+if not seed:
+    seed = random.randint(1, 10000)
+    print(f"Seed wasn't defined, set to: {seed}")
 
 # Create a unique filename
 unique_arg = f"{prompt.replace(' ', '_')}_seed_{seed}"
@@ -89,7 +93,7 @@ cmd = [
     "--seed", str(seed),
     "--output", fullpath,
     "--steps", str(steps),
-    "--res", "800x480"
+    "--res", str(resolution)
 ]
 
 # Run the command
