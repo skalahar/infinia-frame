@@ -1,5 +1,6 @@
 {
     "prompt": "[animal] in [item] [art style]",
+    "steps": 2
     "categories": {
         "animal": [
 	    "Dog", "Cat", "Elephant", "Tiger", "Lion", "Giraffe", "Zebra", "Kangaroo", "Panda",
