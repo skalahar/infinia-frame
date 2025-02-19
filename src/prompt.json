@@ -1,6 +1,8 @@
 {
     "prompt": "[animal] in [item] [art style]",
-    "steps": 2
+    "steps": "2"
+    "seed": ""
+    "resolution":"800x480"
     "categories": {
         "animal": [
 	    "Dog", "Cat", "Elephant", "Tiger", "Lion", "Giraffe", "Zebra", "Kangaroo", "Panda",
