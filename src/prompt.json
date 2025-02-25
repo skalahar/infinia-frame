@@ -1,8 +1,8 @@
 {
     "prompt": "[animal] in [item] [art style]",
-    "steps": "2"
-    "seed": ""
-    "resolution":"800x480"
+    "steps": "2",
+    "seed": "",
+    "resolution":"800x480",
     "categories": {
         "animal": [
 	    "Dog", "Cat", "Elephant", "Tiger", "Lion", "Giraffe", "Zebra", "Kangaroo", "Panda",
@@ -15,7 +15,7 @@
 	    "a tiara", "earrings", "a necklace"
             ],
         "art style": [
-            "as a cartoon drawing", "as a children's book illustration", "as a vintage movie poster",
+            "as a cartoon drawing", "as a vintage movie poster",
             "as a vintage postcard", "using block printing", "in the style of art deco",
             "as a botanical illustration", "as abstract art", "as art nouveau", "in comic style",
             "in cubism style", "as digital pixel art", "as an engraving", "using flat illustration",
