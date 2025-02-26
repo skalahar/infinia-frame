@@ -1,0 +1,10 @@
+#Creating a new User and give it admin privileges
+
+sudo adduser username
+sudo usermod -aG sudo username
+
+# move files from one user to another
+sudo mv /home/user1/ /home/user2/
+
+# Change permissions to the new user
+sudo chown -R user2:user2 /home/user2/
